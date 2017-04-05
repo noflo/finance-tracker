@@ -1,0 +1,23 @@
+# Express.js server
+'3000' -> PORT Server(xpress/Server)
+
+# Auth filter
+'[]' -> Auth(xpress/AuthBearer)
+
+# Operations resource
+Server APP -> APP OpsRouter(xpress/Resource)
+'/api/operations' -> PATH OpsRouter
+Auth -> FILTERS OpsRouter
+OpsRouter INDEX -> Index(xpress/OperationsIndex)
+OpsRouter SHOW -> Show(xpress/OperationsShow)
+OpsRouter CREATE -> Create(xpress/OperationsCreate)
+OpsRouter UPDATE -> Update(xpress/OperationsUpdate)
+OpsRouter DELETE -> Delete(xpress/OperationsDelete)
+
+
+# Reports
+Server APP -> APP ReportsRouter(xpress/Router)
+'/api/reports' -> PATH ReportsRouter
+Auth -> FILTERS ReportsRouter
+'GET /expenses_monthly' -> PATTERN[0] ReportsRouter REQ[0] -> MonthlyExpenses(xpress/ReportsExpensesMonthly)
+'GET /balance_trend' -> PATTERN[1] ReportsRouter REQ[1] -> BalanceTrend(xpress/ReportsBalanceTrend)
