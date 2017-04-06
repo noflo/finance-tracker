@@ -9,7 +9,7 @@ export class Middleware extends Component {
     });
   }
   handle(input, output) {
-    const app = input.get('in');
+    const app = input.getData('in');
     app.use(bodyParser.json({
       type: 'application/json',
       limit: '2mb',
