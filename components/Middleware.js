@@ -1,12 +1,9 @@
 import Component from 'noflo-assembly';
 import * as bodyParser from 'body-parser';
 
-// Sets up auxilliary middleware for our application
 export class Middleware extends Component {
   constructor() {
-    super({
-      description: 'Application-specific Express.js middleware',
-    });
+    super({ description: 'Application-specific Express.js middleware' });
   }
   handle(input, output) {
     const app = input.getData('in');
