@@ -1,23 +1,24 @@
 # Express.js server
 '3000' -> PORT Server(xpress/Server)
+Server APP -> Middleware(finance-tracker/Middleware)
 
-# Auth filter
-'[]' -> Auth(xpress/AuthBearer)
+# Auth filter applied to all routes
+Middleware -> Auth(finance-tracker/AuthBearer)
 
 # Operations resource
-Server APP -> APP OpsRouter(xpress/Resource)
+Auth -> APP OpsRouter(xpress/Resource)
 '/api/operations' -> PATH OpsRouter
 Auth -> FILTERS OpsRouter
-OpsRouter INDEX -> Index(xpress/OperationsIndex)
-OpsRouter SHOW -> Show(xpress/OperationsShow)
-OpsRouter CREATE -> Create(xpress/OperationsCreate)
-OpsRouter UPDATE -> Update(xpress/OperationsUpdate)
-OpsRouter DELETE -> Delete(xpress/OperationsDelete)
+OpsRouter INDEX -> Index(finance-tracker/OperationsIndex)
+OpsRouter SHOW -> Show(finance-tracker/OperationsShow)
+OpsRouter CREATE -> Create(finance-tracker/OperationsCreate)
+OpsRouter UPDATE -> Update(finance-tracker/OperationsUpdate)
+OpsRouter DELETE -> Delete(finance-tracker/OperationsDelete)
 
 
 # Reports
-Server APP -> APP ReportsRouter(xpress/Router)
+Auth APP -> APP ReportsRouter(xpress/Router)
 '/api/reports' -> PATH ReportsRouter
 Auth -> FILTERS ReportsRouter
-'GET /expenses_monthly' -> PATTERN[0] ReportsRouter REQ[0] -> MonthlyExpenses(xpress/ReportsExpensesMonthly)
-'GET /balance_trend' -> PATTERN[1] ReportsRouter REQ[1] -> BalanceTrend(xpress/ReportsBalanceTrend)
+'GET /expenses_monthly' -> PATTERN[0] ReportsRouter REQ[0] -> MonthlyExpenses(finance-tracker/ReportsExpensesMonthly)
+'GET /balance_trend' -> PATTERN[1] ReportsRouter REQ[1] -> BalanceTrend(finance-tracker/ReportsBalanceTrend)
