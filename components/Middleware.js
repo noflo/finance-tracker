@@ -2,7 +2,7 @@ import Component from 'noflo-assembly';
 import * as bodyParser from 'body-parser';
 
 // Sets up auxilliary middleware for our application
-class Middleware extends Component {
+export class Middleware extends Component {
   constructor() {
     super({
       description: 'Application-specific Express.js middleware',
@@ -16,4 +16,8 @@ class Middleware extends Component {
     }));
     output.sendDone(app);
   }
+}
+
+export function getComponent() {
+  return new Middleware();
 }
