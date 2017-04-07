@@ -4,7 +4,8 @@
   "description": "NoFlo Assembly example - Personal finance tracker backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "./node_modules/.bin/eslint components/*.js spec/*.js",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register -R spec spec/*.js"
   },
   "repository": {
     "type": "git",
