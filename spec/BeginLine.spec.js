@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 describe('StartLine component', () => {
   let wrapper;
   before((done) => {
-    wrapper = asCallback('finance-tracker/StartLine');
+    wrapper = asCallback('finance-tracker/BeginLine');
     done();
   });
 
