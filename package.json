@@ -4,8 +4,8 @@
   "description": "NoFlo Assembly example - Personal finance tracker backend",
   "main": "index.js",
   "scripts": {
-    "pretest": "./node_modules/.bin/eslint components/*.js spec/*.js",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register -R spec spec/*.js"
+    "pretest": "./node_modules/.bin/eslint components/*.js spec/*.js && ./node_modules/.bin/knex migrate:latest",
+    "test": "./node_modules/.bin/mocha --timeout 5000 --compilers js:babel-core/register -R spec spec/Operations*.js"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,11 @@
     "knex": "^0.12.8",
     "noflo": "^0.8.3",
     "noflo-assembly": "^0.1.0",
+    "noflo-assembly-db": "^0.1.0",
     "noflo-xpress": "^0.4.0",
-    "sqlite3": "^3.1.8",
+    "passport": "^0.3.2",
+    "passport-http-bearer": "^1.0.1",
+    "pg": "^6.1.5",
     "uuid": "^3.0.1"
   },
   "devDependencies": {

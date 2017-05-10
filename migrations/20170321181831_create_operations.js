@@ -6,7 +6,7 @@ exports.up = function createOps(knex) {
     t.string('currency').notNullable();
     t.string('description');
     t.timestamps();
-    t.index(['user_id', 'tag']);
+    t.index(['user_id']);
   });
 };
 

@@ -1,6 +1,4 @@
 module.exports = {
-  client: 'sqlite3',
-  connection: {
-    filename: '/tmp/finance-tracker.test.sqlite',
-  },
+  client: 'pg',
+  connection: process.env.DATABASE_URL || 'postgres://user:@localhost/financetracker',
 };

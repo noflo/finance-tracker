@@ -25,7 +25,10 @@ export class SendResponse extends Component {
       // Log errors and extract public data for response
       const errors = [];
       msg.errors.forEach((e) => {
-        console.error(e);
+        if (msg.req.res.statusCode !== 422) {
+          // Don't log validation errors
+          console.error(e);
+        }
         const err = { message: e.message };
         if (e.field) { err.field = e.field; }
         errors.push(err);
@@ -34,9 +37,13 @@ export class SendResponse extends Component {
       if (msg.req.res.statusCode < 400) {
         msg.req.res.statusCode = 500;
       }
+      // Rollback the database transaction
+      msg.db.rollback(new Error('NO_ERROR'));
       // Send JSON error response
       msg.req.res.json({ errors });
     } else {
+      // Commit the database transaction
+      msg.db.commit();
       msg.req.res.json(msg.result);
     }
     output.sendDone(msg.req.res);

@@ -1,6 +1,7 @@
 import Component from 'noflo-assembly';
+import db from '../lib/db';
 
-export class StartLine extends Component {
+export class BeginLine extends Component {
   constructor() {
     super({
       description: 'Starts assembly line for request',
@@ -25,10 +26,21 @@ export class StartLine extends Component {
       id: input.scope, // scope is a request UUID
       req,
     };
-    output.sendDone(msg);
+    // Start a database transaction
+    db.transaction((trx) => {
+      msg.db = trx;
+      output.sendDone(msg);
+      // The transaction must be committed or rolled back explicitly
+      // at the end of the line
+      return null;
+    }).catch((e) => {
+      if (e.message !== 'NO_ERROR') {
+        console.error('BeginLine catch:', e);
+      }
+    });
   }
 }
 
 export function getComponent() {
-  return new StartLine();
+  return new BeginLine();
 }

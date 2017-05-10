@@ -1,0 +1,4 @@
+INPORT=Begin.IN:IN
+OUTPORT=Respond.OUT:OUT
+
+Begin(finance-tracker/BeginLine) -> Validate(finance-tracker/OperationValidate) -> MakeCommand(finance-tracker/OperationSaveCommand) -> Insert(assembly-db/Insert) -> MakeResult(finance-tracker/OperationSaveResult) -> Respond(finance-tracker/SendResponse)

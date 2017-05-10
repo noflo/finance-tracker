@@ -9,16 +9,16 @@ Middleware -> Auth(finance-tracker/AuthBearer)
 Auth -> APP OpsRouter(xpress/Resource)
 '/api/operations' -> PATH OpsRouter
 Auth -> FILTERS OpsRouter
-OpsRouter INDEX -> Index(finance-tracker/OperationsIndex)
-OpsRouter SHOW -> Show(finance-tracker/OperationsShow)
+# OpsRouter INDEX -> Index(finance-tracker/OperationsIndex)
+# OpsRouter SHOW -> Show(finance-tracker/OperationsShow)
 OpsRouter CREATE -> Create(finance-tracker/OperationsCreate)
-OpsRouter UPDATE -> Update(finance-tracker/OperationsUpdate)
-OpsRouter DELETE -> Delete(finance-tracker/OperationsDelete)
+# OpsRouter UPDATE -> Update(finance-tracker/OperationsUpdate)
+# OpsRouter DELETE -> Delete(finance-tracker/OperationsDelete)
 
 
-# Reports
-Auth APP -> APP ReportsRouter(xpress/Router)
-'/api/reports' -> PATH ReportsRouter
-Auth -> FILTERS ReportsRouter
-'GET /expenses_monthly' -> PATTERN[0] ReportsRouter REQ[0] -> MonthlyExpenses(finance-tracker/ReportsExpensesMonthly)
-'GET /balance_trend' -> PATTERN[1] ReportsRouter REQ[1] -> BalanceTrend(finance-tracker/ReportsBalanceTrend)
+# # Reports
+# Auth APP -> APP ReportsRouter(xpress/Router)
+# '/api/reports' -> PATH ReportsRouter
+# Auth -> FILTERS ReportsRouter
+# 'GET /expenses_monthly' -> PATTERN[0] ReportsRouter REQ[0] -> MonthlyExpenses(finance-tracker/ReportsExpensesMonthly)
+# 'GET /balance_trend' -> PATTERN[1] ReportsRouter REQ[1] -> BalanceTrend(finance-tracker/ReportsBalanceTrend)
