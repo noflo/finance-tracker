@@ -38,12 +38,21 @@ export class SendResponse extends Component {
         msg.req.res.statusCode = 500;
       }
       // Rollback the database transaction
-      msg.db.rollback(new Error('NO_ERROR'));
+      if (msg.db) {
+        try {
+          msg.db.rollback(new Error('NO_ERROR'));
+        } catch (e) {
+          // This shit always fails, ignore it
+          console.log('IGNORE', e);
+        }
+      }
       // Send JSON error response
       msg.req.res.json({ errors });
     } else {
       // Commit the database transaction
-      msg.db.commit();
+      if (msg.db) {
+        msg.db.commit();
+      }
       msg.req.res.json(msg.result);
     }
     output.sendDone(msg.req.res);

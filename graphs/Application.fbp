@@ -12,7 +12,7 @@ Auth -> FILTERS OpsRouter
 # OpsRouter INDEX -> Index(finance-tracker/OperationsIndex)
 # OpsRouter SHOW -> Show(finance-tracker/OperationsShow)
 OpsRouter CREATE -> Create(finance-tracker/OperationsCreate)
-# OpsRouter UPDATE -> Update(finance-tracker/OperationsUpdate)
+OpsRouter UPDATE -> Update(finance-tracker/OperationsUpdate)
 # OpsRouter DELETE -> Delete(finance-tracker/OperationsDelete)
 
 
