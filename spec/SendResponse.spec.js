@@ -1,6 +1,6 @@
-const { expect } require('chai');
+const { expect } = require('chai');
 const { asCallback } = require('noflo');
-const { mockRequest, mockMsg } require('./lib/helpers');
+const { mockRequest, mockMsg } = require('./lib/helpers');
 
 describe('SendResponse component', () => {
   let wrapper;

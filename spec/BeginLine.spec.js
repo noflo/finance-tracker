@@ -1,4 +1,4 @@
-const { expect } require('chai');
+const { expect } = require('chai');
 const { asCallback, IP } = require('noflo');
 const { v4 } = require('uuid');
 

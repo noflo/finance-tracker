@@ -1,7 +1,7 @@
-const { expect } require('chai');
+const { expect } = require('chai');
 const { asCallback } = require('noflo');
 const { v4 } = require('uuid');
-const { mockRequest, cleanUp } require('./lib/helpers');
+const { mockRequest, cleanUp } = require('./lib/helpers');
 const db = require('../lib/db');
 
 describe('OperationsUpdate graph', () => {
