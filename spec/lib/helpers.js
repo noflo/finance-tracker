@@ -16,7 +16,7 @@ exports.mockRequest = (statusCode, callback) => {
   };
 };
 
-exports.mockMsg(req, result, errors = []) => {
+exports.mockMsg = (req, result, errors = []) => {
   return {
     errors,
     id: v4(),
@@ -25,7 +25,7 @@ exports.mockMsg(req, result, errors = []) => {
   };
 };
 
-exports.cleanUp(db) => {
+exports.cleanUp = (db) => {
   return db.raw(`TRUNCATE TABLE
     users,
     operations,
