@@ -1,7 +1,6 @@
-import 'mocha';
-import { expect } from 'chai';
-import { asCallback, IP } from 'noflo';
-import { v4 } from 'uuid';
+const { expect } require('chai');
+const { asCallback, IP } = require('noflo');
+const { v4 } = require('uuid');
 
 describe('StartLine component', () => {
   let wrapper;

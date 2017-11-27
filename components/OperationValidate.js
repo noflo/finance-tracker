@@ -1,6 +1,8 @@
-import Component, { fail } from 'noflo-assembly';
+const Component = require('noflo-assembly');
 
-export class OperationValidate extends Component {
+const { fail } = Component;
+
+class OperationValidate extends Component {
   constructor() {
     super({
       description: 'Gets Operation from request and validates it',
@@ -41,6 +43,4 @@ export class OperationValidate extends Component {
   }
 }
 
-export function getComponent() {
-  return new OperationValidate();
-}
+exports.getComponent = () => new OperationValidate();

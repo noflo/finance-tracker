@@ -1,7 +1,7 @@
-import Component from 'noflo-assembly';
-import * as bodyParser from 'body-parser';
+const Component = require('noflo-assembly');
+const bodyParser = require('body-parser');
 
-export class Middleware extends Component {
+class Middleware extends Component {
   constructor() {
     super({ description: 'Application-specific Express.js middleware' });
   }
@@ -15,6 +15,4 @@ export class Middleware extends Component {
   }
 }
 
-export function getComponent() {
-  return new Middleware();
-}
+exports.getComponent = () => new Middleware();

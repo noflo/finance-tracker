@@ -1,6 +1,6 @@
-import Component from 'noflo-assembly';
+const Component = require('noflo-assembly');
 
-export class OperationSaveCommand extends Component {
+class OperationSaveCommand extends Component {
   constructor() {
     super({
       description: 'Prepares Insert/Update command',
@@ -20,6 +20,4 @@ export class OperationSaveCommand extends Component {
   }
 }
 
-export function getComponent() {
-  return new OperationSaveCommand();
-}
+exports.getComponent = () => new OperationSaveCommand();

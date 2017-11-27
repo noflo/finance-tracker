@@ -1,9 +1,9 @@
-import Component from 'noflo-assembly';
-import * as passport from 'passport';
-import { BearerStrategy } from 'passport-http-bearer';
-import * as knex from 'knex';
+const Component = require('noflo-assembly');
+const passport = require('passport');
+const { BearerStrategy } = require('passport-http-bearer');
+const knex = require('knex');
 
-export class AuthBearer extends Component {
+class AuthBearer extends Component {
   handle(input, output) {
     const app = input.getData('in');
     app.use(passport.initialize());
@@ -24,6 +24,4 @@ export class AuthBearer extends Component {
   }
 }
 
-export function getComponent() {
-  return new AuthBearer();
-}
+exports.getComponent = () => new AuthBearer();
