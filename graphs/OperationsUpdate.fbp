@@ -1,3 +1,4 @@
+# @runtime noflo-nodejs
 INPORT=Begin.IN:IN
 OUTPORT=Respond.OUT:OUT
 
