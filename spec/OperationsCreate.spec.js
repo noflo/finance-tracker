@@ -16,14 +16,14 @@ describe('OperationsCreate graph', () => {
   before((done) => {
     wrapper = asCallback('finance-tracker/OperationsCreate');
     cleanUp(db)
-    .then(() => db('users').insert(userData))
-    .then(() => done())
-    .catch(done);
+      .then(() => db('users').insert(userData))
+      .then(() => done())
+      .catch(done);
   });
   after((done) => {
     cleanUp(db)
-    .then(() => done())
-    .catch(done);
+      .then(() => done())
+      .catch(done);
   });
 
   it('fails with 422 if input is invalid', (done) => {

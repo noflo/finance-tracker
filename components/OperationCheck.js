@@ -15,36 +15,36 @@ export class OperationCheck extends Component {
     }
     let sent = false;
     msg.db('operations')
-    .select()
-    .where('id', msg.req.params.id)
-    .then((rows) => {
-      if (sent) { return; }
-      sent = true;
-      if (rows.length !== 1) {
-        msg.req.res.status(404);
-        output.sendDone(fail(msg, new Error('Operation not found')));
-        return;
-      }
-      if (rows[0].user_id !== msg.req.user.id) {
-        msg.req.res.status(403);
-        output.sendDone(fail(msg, new Error('Operation owned by another user')));
-        return;
-      }
-      const op = rows[0];
-      if (msg.operation.description === undefined && op.description) {
-        msg.operation.description = op.description;
-      }
-      msg.operation.id = parseInt(op.id, 10);
-      output.sendDone(msg);
-    })
-    .catch((e) => {
-      if (sent) {
-        console.error(e);
-      } else {
+      .select()
+      .where('id', msg.req.params.id)
+      .then((rows) => {
+        if (sent) { return; }
         sent = true;
-        output.sendDone(fail(msg, e));
-      }
-    });
+        if (rows.length !== 1) {
+          msg.req.res.status(404);
+          output.sendDone(fail(msg, new Error('Operation not found')));
+          return;
+        }
+        if (rows[0].user_id !== msg.req.user.id) {
+          msg.req.res.status(403);
+          output.sendDone(fail(msg, new Error('Operation owned by another user')));
+          return;
+        }
+        const op = rows[0];
+        if (msg.operation.description === undefined && op.description) {
+          msg.operation.description = op.description;
+        }
+        msg.operation.id = parseInt(op.id, 10);
+        output.sendDone(msg);
+      })
+      .catch((e) => {
+        if (sent) {
+          console.error(e);
+        } else {
+          sent = true;
+          output.sendDone(fail(msg, e));
+        }
+      });
   }
 }
 

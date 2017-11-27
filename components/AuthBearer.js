@@ -11,14 +11,14 @@ export class AuthBearer extends Component {
       knex('users')
         .select()
         .where('token', token)
-      .then((rows) => {
-        if (rows.length !== 1) {
-          done(null, false);
-          return;
-        }
-        done(null, rows[0]);
-      })
-      .catch(done);
+        .then((rows) => {
+          if (rows.length !== 1) {
+            done(null, false);
+            return;
+          }
+          done(null, rows[0]);
+        })
+        .catch(done);
     }));
     output.sendDone(app);
   }

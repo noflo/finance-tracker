@@ -21,18 +21,18 @@ describe('OperationsUpdate graph', () => {
   before((done) => {
     wrapper = asCallback('finance-tracker/OperationsUpdate');
     cleanUp(db)
-    .then(() => db('users').insert(userData))
-    .then(() => db('operations').insert(opData, 'id'))
-    .then((rows) => {
-      opData.id = rows[0];
-      done();
-    })
-    .catch(done);
+      .then(() => db('users').insert(userData))
+      .then(() => db('operations').insert(opData, 'id'))
+      .then((rows) => {
+        opData.id = rows.shift();
+        done();
+      })
+      .catch(done);
   });
   after((done) => {
     cleanUp(db)
-    .then(() => done())
-    .catch(done);
+      .then(() => done())
+      .catch(done);
   });
 
   it('fails with 404 if operation does not exist', (done) => {
