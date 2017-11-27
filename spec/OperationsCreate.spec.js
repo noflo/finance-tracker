@@ -1,9 +1,8 @@
-import 'mocha';
-import { expect } from 'chai';
-import { asCallback } from 'noflo';
-import { v4 } from 'uuid';
-import { mockRequest, cleanUp } from './lib/helpers';
-import db from '../lib/db';
+const { expect } = require('chai');
+const { asCallback } = require('noflo');
+const { v4 } = require('uuid');
+const { mockRequest, cleanUp } = require('./lib/helpers');
+const db = require('../lib/db');
 
 describe('OperationsCreate graph', () => {
   let wrapper;

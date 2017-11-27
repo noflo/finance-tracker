@@ -1,6 +1,6 @@
-import Component from 'noflo-assembly';
+const Component = require('noflo-assembly');
 
-export class SendResponse extends Component {
+class SendResponse extends Component {
   constructor() {
     super({
       description: 'Finishes assembly line by sending a response to client',
@@ -59,6 +59,4 @@ export class SendResponse extends Component {
   }
 }
 
-export function getComponent() {
-  return new SendResponse();
-}
+exports.getComponent = () => new SendResponse();

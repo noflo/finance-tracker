@@ -1,7 +1,7 @@
-import Component from 'noflo-assembly';
-import db from '../lib/db';
+const Component = require('noflo-assembly');
+const db = require('../lib/db');
 
-export class BeginLine extends Component {
+class BeginLine extends Component {
   constructor() {
     super({
       description: 'Starts assembly line for request',
@@ -41,6 +41,4 @@ export class BeginLine extends Component {
   }
 }
 
-export function getComponent() {
-  return new BeginLine();
-}
+exports.getComponent = () => new BeginLine();

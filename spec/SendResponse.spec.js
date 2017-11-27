@@ -1,7 +1,6 @@
-import 'mocha';
-import { expect } from 'chai';
-import { asCallback } from 'noflo';
-import { mockMsg, mockRequest } from './lib/helpers';
+const { expect } = require('chai');
+const { asCallback } = require('noflo');
+const { mockRequest, mockMsg } = require('./lib/helpers');
 
 describe('SendResponse component', () => {
   let wrapper;

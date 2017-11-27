@@ -1,6 +1,6 @@
-import { v4 } from 'uuid';
+const { v4 } = require('uuid');
 
-export function mockRequest(statusCode, callback) {
+exports.mockRequest = (statusCode, callback) => {
   return {
     res: {
       statusCode,
@@ -14,22 +14,22 @@ export function mockRequest(statusCode, callback) {
       },
     },
   };
-}
+};
 
-export function mockMsg(req, result, errors = []) {
+exports.mockMsg = (req, result, errors = []) => {
   return {
     errors,
     id: v4(),
     req,
     result,
   };
-}
+};
 
-export function cleanUp(db) {
+exports.cleanUp = (db) => {
   return db.raw(`TRUNCATE TABLE
     users,
     operations,
     tags,
     operations_tags
     CASCADE`);
-}
+};

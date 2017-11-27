@@ -1,6 +1,8 @@
-import Component, { fail } from 'noflo-assembly';
+const Component = require('noflo-assembly');
 
-export class OperationCheck extends Component {
+const { fail } = Component;
+
+class OperationCheck extends Component {
   constructor() {
     super({
       description: 'Checks operation ID, ownership and updated feilds',
@@ -48,6 +50,4 @@ export class OperationCheck extends Component {
   }
 }
 
-export function getComponent() {
-  return new OperationCheck();
-}
+exports.getComponent = () => new OperationCheck();
