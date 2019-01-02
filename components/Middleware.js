@@ -5,6 +5,7 @@ class Middleware extends Component {
   constructor() {
     super({ description: 'Application-specific Express.js middleware' });
   }
+
   handle(input, output) {
     const app = input.getData('in');
     app.use(bodyParser.json({

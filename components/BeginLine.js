@@ -19,6 +19,7 @@ class BeginLine extends Component {
       },
     });
   }
+
   handle(input, output) {
     const req = input.getData('in');
     const msg = {
