@@ -7,6 +7,7 @@ class OperationSaveCommand extends Component {
       validates: { operation: 'obj' },
     });
   }
+
   relay(msg, output) {
     msg.query = {
       table: 'operations',

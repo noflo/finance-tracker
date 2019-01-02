@@ -9,6 +9,7 @@ class OperationSaveResult extends Component {
       validates: { operation: 'obj' },
     });
   }
+
   relay(msg, output) {
     if (msg.rowset.length === 1) {
       if (msg.operation.id === undefined) {

@@ -19,6 +19,7 @@ class SendResponse extends Component {
       validates: ['req', 'req.res', 'result'],
     });
   }
+
   handle(input, output) {
     const msg = input.getData('in');
     if (!this.validate(msg)) {

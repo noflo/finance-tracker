@@ -9,6 +9,7 @@ class OperationCheck extends Component {
       validates: ['req', 'req.user.id'],
     });
   }
+
   relay(msg, output) {
     if (!msg.req.params || !msg.req.params.id) {
       msg.req.res.status(400);
