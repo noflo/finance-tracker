@@ -9,10 +9,11 @@ class OperationValidate extends Component {
       validates: ['req', 'req.user.id'],
     });
   }
+
   relay(msg, output) {
     const errs = [];
-    if (!msg.req.body.amount ||
-      msg.req.body.amount.toString().search(/^-?\d+(\.\d+)?$/) === -1) {
+    if (!msg.req.body.amount
+      || msg.req.body.amount.toString().search(/^-?\d+(\.\d+)?$/) === -1) {
       const e = new Error('Valid amount is required');
       e.field = 'amount';
       errs.push(e);
